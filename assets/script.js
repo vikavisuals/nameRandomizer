@@ -1,5 +1,11 @@
 
 
+// Button that creates a name for textbox
+const generateNameBtn = document.querySelector("#generateNameBtn");
+generateNameBtn.addEventListener("click", fetchNames);
+
+
+
 function fetchNames() {
 
   const APIkey = "vi257045419";
@@ -17,14 +23,7 @@ function fetchNames() {
       console.log(data);
       console.log(data.names["0"]);
       let generatedName = document.querySelector("#generatedName");
-      generatedName.value = data.names;
+      generatedName.value = data.names["0"];
     })
 
 };
-
-
-
-
-// Button that creates a name for textbox
-const generateNameBtn = document.querySelector("#generateNameBtn");
-generateNameBtn.addEventListener("click", fetchNames);
