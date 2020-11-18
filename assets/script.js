@@ -14,13 +14,19 @@ function createName() {
 
 
 
-let url = "https://www.behindthename.com/api/lookup.xml?name=mary&key=vi257045419"
+let url = "https://www.behindthename.com/api/random.json?usage=ita&gender=f&key=vi257045419"
 
 fetch(url) // Call the fetch function passing the url of the API as a parameter
-  .then(function () {
+
+  .then((resp) => resp.json()) // Transform the data into json
+
+  .then(function (data) {
     // Your code for handling the data you get from the API
-return url;
+    console.log(data)
+    console.log(data.names)
+
   })
-  .catch(function () {
+  .catch(function (error) {
     // This is where you run code if the server returns any errors
+    console.log(error);
   });
